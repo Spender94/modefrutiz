@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frutiparc Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div id="main-container">
+        <!-- Partie en haut à gauche -->
+        <div id="profile-section">
+            <!-- Avatar -->
+
+            <div id="avatar-container">
+                <div id="avatar">
+                    <img id="avatar-frame" src="assets/cadre_avatar.svg" alt="Cadre Avatar">
+                    <img id="avatar-img" src="assets/kasparov.png" alt="Avatar">
+                    <img id="avatar-reflection" src="assets/cadre_avatar_reflets.svg" alt="Reflet">
+                </div>
+            </div>
+
+            <!-- Barre de Navigation avec Niveau, Ranking, et Accès Rapides -->
+            <div id="info-container">
+                <div id="level-bar">
+                    <div id="progress-container">
+                        <div id="progress-bar">
+                            <div class="progress-line"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-line"></div>
+                        </div>
+                        <div id="level-text-container">
+                            <span id="level-text">NIV 9</span>
+                        </div>
+                    </div>
+                    <div id="ranking-and-access">
+                        <div id="ranking-container">
+                            <img id="ranking-icon" src="assets/coupe.png" alt="Icône de Classement">
+                            <span id="ranking-score">63</span>
+                        </div>
+                        <div class="separator"></div> <!-- Ligne de séparation -->
+                        <!-- Accès rapides intégrés -->
+                        <div id="quick-access-container">
+                         <img class="quick-access-icon" src="assets/quick_access_aide.svg" alt="Aide">
+                            <img class="quick-access-icon" src="assets/quick_access_forum.svg" alt="Forum">
+                            <img class="quick-access-icon" src="assets/quick_access_mail.svg" alt="mail">
+                            <img class="quick-access-icon" src="assets/quick_access_historique.svg" alt="Historique">
+                            <img class="quick-access-icon" src="assets/quick_access_warning.svg" alt="Avertissement">
+                            <img class="quick-access-icon" src="assets/quick_access_jeux.svg" alt="Jeux">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloc des Emotes -->
+                <div id="emote-container">
+                    <img class="emote-icon" src="assets/emote_stoique.svg" alt="Stoïque">
+                    <img class="emote-icon" src="assets/emote_content.svg" alt="Content">
+                    <img class="emote-icon" src="assets/emote_ravi.svg" alt="Ravi">
+                    <img class="emote-icon" src="assets/emote_mechant.svg" alt="Méchant">
+                    <img class="emote-icon" src="assets/emote_triste.svg" alt="Triste">
+                    <img class="emote-icon" src="assets/emote_fou.svg" alt="Fou">
+                    <img class="emote-icon" src="assets/emote_transi.svg" alt="Transi">
+                </div>
+            </div>
+        </div>
+
+
+       <!-- Mandala Section -->
+<div id="mandala-container">
+    <div id="mandala-wrapper">
+        <img id="mandala-wheel" src="assets/roue.svg" alt="Roue Mandala">
+        <img id="mandala-frame" src="assets/mandala_cadre.png" alt="Cadre Mandala">
+        <img id="mandala-reflection" src="assets/mandala_reflet.png" alt="Reflet Mandala" style="display: none;">
+    </div>
+    <!-- Boutons autour de la Mandala -->
+    <img class="mandala-button" id="mandala-btn-prev" src="assets/mandala_bouton_previous.png" alt="Bouton Précédent">
+    <img class="mandala-button" id="mandala-btn-next" src="assets/mandala_bouton_next.png" alt="Bouton Suivant">
+    <img class="mandala-button" id="mandala-btn-refresh" src="assets/mandala_bouton_refresh.png" alt="Bouton Rafraîchir">
+    <img class="mandala-button" id="mandala-btn-switch" src="assets/mandala_bouton_switch.png" alt="Bouton Changer">
+</div>
+
+
+        <!-- Frusion Section -->
+<div id="frusion-background"></div>
+<div id="frusion-container"></div>
+<div id="lecteur-frusion"></div>
+
+
+
+<div id="tabs-container">
+    <div id="fixed-tab"> 
+        <div id="bureau-tab" class="fixed-tab"> 
+            <img src="assets/scores_favicon.svg" alt="Bureau Icon"> 
+            <span>Bureau</span> 
+        </div>
+    </div>
+    <div id="dynamic-tabs">
+        <!-- Les onglets dynamiques seront ajoutés ici -->
+    </div>
+</div>
+
+<!-- Languette pour ouvrir la barre des contacts -->
+<div id="contacts-tab">CONTACTS</div>
+
+<!-- Barre des contacts -->
+<div id="contacts-bar">
+    <div id="contacts-content">
+        <div class="contacts-category">
+            <div class="contacts-header">Administrateurs</div>
+            <ul class="contacts-list">
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon">hiko</li>
+            </ul>
+        </div>
+        <div class="contacts-category">
+            <div class="contacts-header">Modérateurs</div>
+            <ul class="contacts-list">
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon">Squall</li>
+            </ul>
+        </div>
+        <div class="contacts-category">
+            <div class="contacts-header">Animateurs</div>
+            <ul class="contacts-list">
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon"> Babylou</li>
+                <li><img src="assets/enligne.svg" alt="En ligne" class="status-icon"> kasparov</li>
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon"> pattedecat</li>
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon"> coincoin</li>
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon"> Lion75</li>
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon"> Nitrine</li>
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon"> Braxer</li>
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon"> linkinpunk</li>
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon"> Yop2003</li>
+            </ul>
+        </div>
+        <div class="contacts-category">
+            <div class="contacts-header">Amies</div>
+            <ul class="contacts-list">
+                <li><img src="assets/horsligne.svg" alt="En ligne" class="status-icon">Pampan</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+        <!-- Zone principale du bureau -->
+<div id="desktop-area">
+    <div id="mail-icon-container" class="desktop-icon" style="top: 20px; left: 10px;">
+        <img id="mail-icon" src="assets/icone_mail_1.svg" alt="Mail Icon">
+        <span>Messagerie</span>
+    </div>
+    <div id="forum-icon-container" class="desktop-icon" style="top: 20px; left: 120px;">
+        <img id="forum-icon" src="assets/icon_forum.svg" alt="Forum Icon">
+        <span>Forum</span>
+    </div>
+    <div id="liste-noire-icon-container" class="desktop-icon" style="top: 20px; left: 230px;">
+        <img id="liste-noire-icon" src="assets/liste_noire.svg" alt="Liste Noire Icon">
+        <span>Liste Noire</span>
+    </div>
+    <div id="scores-icon-container" class="desktop-icon" style="top: 20px; left: 340px;">
+        <img id="scores-icon" src="assets/scores.svg" alt="Scores Icon">
+        <span>Scores</span>
+    </div>
+    <div id="salons-icon-container" class="desktop-icon" style="top: 20px; left: 450px;">
+        <img id="salons-icon" src="assets/salons.svg" alt="Les Salons Icon">
+        <span>Les Salons</span>
+    </div>
+    <div id="corbeille-icon-container" class="desktop-icon" style="top: 20px; left: 560px;">
+        <img id="corbeille-icon" src="assets/corbeille.svg" alt="Corbeille Icon">
+        <span>Corbeille</span>
+    </div>
+    <div id="inventaire-icon-container" class="desktop-icon" style="top: 20px; left: 670px;">
+        <img id="inventaire-icon" src="assets/inventaire.svg" alt="Inventaire Icon">
+        <span>Inventaire</span>
+    </div>
+    <div id="boutique-icon-container" class="desktop-icon" style="top: 20px; left: 780px;">
+        <img id="boutique-icon" src="assets/boutique.svg" alt="Boutique Icon">
+        <span>Boutique</span>
+    </div>
+<div id="jeux-icon-container" class="desktop-icon" style="top: 20px; left: 890px;">
+    <img id="jeux-icon" src="assets/icone_pack_frusion_disc_1.svg" alt="Jeux Icon">
+    <span>Jeux</span>
+
+</div>
+
+    <!-- Ajoutez d'autres icônes ici -->
+</div>
+
+<!-- Fenêtre Jeux -->
+<div id="jeux-window" class="window">
+    <div class="window-header">
+    <img src="assets/favicon_banane.svg" alt="Favicon" id="jeux_favicon">
+    <span id="jeux-title">Mes jeux</span>
+        <div class="window-controls">
+            <button id="minimize-jeux-btn" class="minimize-btn"><img src="assets/icone_reduire.svg" alt="Réduire"></button>
+            <button id="close-jeux-btn" class="close-btn"><img src="assets/fiche_close.svg" alt="Fermer"></button>
+        </div>
+
+    </div>
+
+    <div class="window-content">
+
+<div id="jeux-menu">
+<span>Pour jouer, faites glisser les diques dans la Frusion : la console située en haut à droite de Frutiparc.</span>
+
+</div> 
+
+<!-- Section Jeux Details -->
+<div id="jeux-details">
+    <div class="fd-item" id="fd-bandas" style="display: inline-block; margin: 5px; cursor: grab;">
+        <img src="assets/FD/Bandas.png" alt="Bandas" style="width: 64px; height: 64px;">
+    </div>
+    <div class="fd-item" id="fd-grapiz" style="display: inline-block; margin: 5px; cursor: grab;">
+        <img src="assets/FD/Grapiz.png" alt="Grapiz" style="width: 64px; height: 64px;">
+    </div>
+    <div class="fd-item" id="fd-snake" style="display: inline-block; margin: 5px; cursor: grab;">
+        <img src="assets/FD/Snake.png" alt="Snake" style="width: 64px; height: 64px;">
+    </div>
+</div>
+
+
+    </div> 
+   
+
+</div>
+
+
+<!-- Fenêtre de Scores -->
+<div id="scores-window">
+   <div id="scores-header">
+    <img src="assets/scores_favicon.svg" alt="Favicon" id="scores-favicon">
+    <span id="scores-title">Scores - Burning Kiwi - ven 11 juin</span>
+     <!-- Bouton pour réduire la fenêtre -->
+    <button id="minimize-scores-btn"><img src="assets/icone_reduire.svg" alt="Réduire"></button>
+    
+    <!-- Bouton pour fermer la fenêtre -->
+    <button id="close-scores-btn"><img src="assets/fiche_close.svg" alt="Fermer"></button>
+</div>
+    <div id="scores-content">
+        <div id="scores-menu">
+    <ul>
+        <!-- Challenge Section -->
+        <li class="menu-title">
+            <img src="assets/scores_icone_challenge.svg" alt="Challenge Icon">
+            Challenge
+        </li>
+        <li class="menu-item">
+            <img src="assets/scores_icone_jeux.svg" alt="Jeu Icon">
+            Burning Kiwi
+        </li>
+        <li class="menu-item">
+            <img src="assets/scores_icone_jeux.svg" alt="Jeu Icon">
+            Frutisnake 2
+        </li>
+        <li class="menu-item">
+            <img src="assets/scores_icone_jeux.svg" alt="Jeu Icon">
+            Motion Ball 2
+        </li>
+        <li class="menu-item">
+            <img src="assets/scores_icone_jeux.svg" alt="Jeu Icon">
+            Swapou 2
+        </li>
+        <li class="menu-item">
+            <img src="assets/scores_icone_jeux.svg" alt="Jeu Icon">
+            Kaluga
+        </li>
+        <li class="menu-item">
+            <img src="assets/scores_icone_jeux.svg" alt="Jeu Icon">
+            Frutibandas
+        </li>
+        <li class="menu-item">
+            <img src="assets/scores_icone_jeux.svg" alt="Jeu Icon">
+            Grapiz
+        </li>
+
+        <!-- Championnat Section -->
+        <li class="menu-title">
+            <img src="assets/scores_icone_championnat.svg" alt="Championnat Icon">
+            Championnat
+        </li>
+        <li class="menu-item">
+            <img src="assets/scores_icone_xp.svg" alt="XP Icon">
+            Classement XP
+        </li>
+        <li class="menu-item">
+            <img src="assets/scores_icone_xp.svg" alt="XP Icon">
+            Class. consécration
+        </li>
+    </ul>
+</div>
+<div id="scores-details">
+<div id="top-medalist">
+    <div class="medalist">
+        <div class="medal-wrapper">
+            <img src="assets/medaille0001.png" alt="Médaille Or" class="medal-background">
+            <img src="assets/mBkiwi0001.png" alt="Jeu Burning Kiwi Or" class="medal-icon">
+        </div>
+        <span class="medalist-name">Benjamin2110</span>
+    </div>
+    <div class="medalist">
+        <div class="medal-wrapper">
+            <img src="assets/medaille0002.png" alt="Médaille Argent" class="medal-background">
+            <img src="assets/mBkiwi0002.png" alt="Jeu Burning Kiwi Argent" class="medal-icon">
+        </div>
+        <span class="medalist-name">paulou24</span>
+    </div>
+    <div class="medalist">
+        <div class="medal-wrapper">
+            <img src="assets/medaille0003.png" alt="Médaille Bronze" class="medal-background">
+            <img src="assets/mBkiwi0003.png" alt="Jeu Burning Kiwi Bronze" class="medal-icon">
+        </div>
+        <span class="medalist-name">frankki123</span>
+    </div>
+</div>
+
+
+    <h3>Je suis 6ème avec 53'730</h3>
+<table id="scores-table">
+    <tr>
+        <th>#</th>
+        <th></th> <!-- Colonne dédiée pour les avatars -->
+        <th>Frutiz</th>
+        <th>Temps</th>
+        <th>Écurie</th>
+        <th>Rang</th>
+        <th>Heure</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><img src="assets/ananax.png" class="avatar"></td>
+        <td>AnanaX</td>
+        <td>51'234</td>
+        <td><img src="assets/car_uwe.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td><img src="assets/tigrenoir.png" class="avatar"></td>
+        <td>tigrenoir</td>
+        <td>51'452</td>
+        <td><img src="assets/car_uwe.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+
+    <tr>
+        <td>3</td>
+        <td><img src="assets/sness.png" class="avatar"></td>
+        <td>SNess</td>
+        <td>52'030</td>
+        <td><img src="assets/car_uwe.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+
+    <tr>
+        <td>4</td>
+        <td><img src="assets/coincoin.png" class="avatar"></td>
+        <td>coincoin</td>
+        <td>52'800</td>
+        <td><img src="assets/car_kiwix.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+
+    <tr>
+        <td>5</td>
+        <td><img src="assets/acgi.png" class="avatar"></td>
+        <td>acgi</td>
+        <td>52'933</td>
+        <td><img src="assets/car_uo.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+     <tr>
+        <td>6</td>
+        <td><img src="assets/kasparov.png" class="avatar"></td>
+        <td>kasparov</td>
+        <td>53'730</td>
+        <td><img src="assets/car_uwe.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+
+    <tr>
+        <td>7</td>
+        <td><img src="assets/duvelke.png" class="avatar"></td>
+        <td>duvelke</td>
+        <td>53'886</td>
+        <td><img src="assets/car_uo.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+
+    <tr>
+        <td>8</td>
+        <td><img src="assets/keyser.png" class="avatar"></td>
+        <td>keyser</td>
+        <td>54'001</td>
+        <td><img src="assets/car_uwe.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+
+    <tr>
+        <td>9</td>
+        <td><img src="assets/freudette.png" class="avatar"></td>
+        <td>freudette</td>
+        <td>54'100</td>
+        <td><img src="assets/car_uwe.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+
+    <tr>
+        <td>10</td>
+        <td><img src="assets/squall.png" class="avatar"></td>
+        <td>Squall</td>
+        <td>54'120</td>
+        <td><img src="assets/car_uwe.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+
+
+    <tr>
+        <td>11</td>
+        <td><img src="assets/acgi.png" class="avatar"></td>
+        <td>acgi</td>
+        <td>0'000</td>
+        <td><img src="assets/kiwix.png" alt="Écurie Gold" class="ecurie-icon"></td>
+        <td><img src="assets/rank.png" alt="Rang Or" class="rank-icon"></td>
+        <td>16:21</td>
+    </tr>
+
+        <!-- Ajoutez d'autres lignes pour les scores ici -->
+    </table>
+    <div id="pagination">
+        <button id="prev-page">précédents</button>
+        <button id="next-page">suivants</button>
+    </div>
+</div>
+
+    </div>
+    <div id="scores-footer">
+        <span>11 juin 04</span>
+    </div>
+</div>
+
+<!-- Conteneur pour la vidéo, initialement caché -->
+<div id="video-container" style="display: none; position: fixed; top: 25%; left: 15%; width: 100vw; height: 100vh; z-index: 200;">
+    <video id="video" width="70%" height="70%" controls autoplay>
+       <source src="assets/snake2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+
+
+
+<div id="salons-window">
+<div id="salons-header">
+    <div class="header-left">
+        <img src="assets/favicon_fraise.svg" alt="Favicon" id="salons-favicon">
+        <span id="salons-title">Salons publics</span>
+    </div>
+
+<div class="header-right">
+        <!-- Bouton pour réduire la fenêtre -->
+        <button id="minimize-salons-btn"><img src="assets/icone_reduire.svg" alt="Réduire"></button>
+
+        <!-- Bouton pour fermer la fenêtre -->
+        <button id="close-salons-btn"><img src="assets/fiche_close.svg" alt="Fermer"></button>
+    </div>
+
+</div>
+
+
+    
+    <div id="salons-content">
+<div id="salons-list-container">
+        <ul id="salons-list">
+            <!-- Exemple d'éléments de la liste -->
+            <li class="salon-item">Temple du grand Dieu Eolas (0)</li>
+            <li class="salon-item">Montage des Loups-Garous (1)</li>
+            <li class="salon-item">Forêt sombre et humide (1)</li>
+            <li class="salon-item">Forêt de Nuria et Daft les enchantées (1)</li>
+        <li class="salon-item">Laboratoire Kiwix (2)</li>
+            <li class="salon-item">Marais d'Ornégon (2)</li>
+            <li class="salon-item">Les Apiculteurs de Vienne (1)</li>
+            <li class="salon-item">Plaines du désespoir incertain (1)</li>
+            <li class="salon-item">Taverne Farzest (6)</li>
+            <li class="salon-item">Sombres caves du bar d'à coté (1)</li>
+            <li class="salon-item">Nuage d'Ahonia (1)</li>
+            <li class="salon-item">Salon Anim // Joyeux Nowel à Tous ! \o/ (1)</li>
+        </ul>
+    </div>
+
+    </div>
+    
+    <div id="salons-footer">
+        <button id="create-salon-btn">créer un salon</button>
+        <input type="text" id="create-salon-input">
+    </div>
+</div>
+
+<!-- Fenêtre de chat principale -->
+<div id="chat-window" class="window">
+    <div id="chat-header">
+        <div class="header-left">
+            <img src="assets/favicon_fraise.svg" alt="Favicon" class="favicon">
+            <span>Laboratoire Kiwix (2)</span>
+        </div>
+        <div class="header-right">
+            <button id="minimize-chat-btn"><img src="assets/icone_reduire.svg" alt="Minimize"></button>
+            <button id="close-chat-btn"><img src="assets/fiche_close.svg" alt="Close"></button>
+        </div>
+    </div>
+
+    <!-- Conteneur principal du contenu de chat -->
+    <div id="chat-content">
+        <!-- Icones latérales -->
+        <div id="chat-icons">
+            <img src="assets/bouton_bouilles.png" alt="Icon 1" class="chat-icon">
+            <img src="assets/bouton_liste.png" alt="Icon 2" class="chat-icon">
+            <img src="assets/bouton_feutres.png" alt="Icon 3" class="chat-icon" id="toggle-pen">
+            <img src="assets/bouton_alerte_modo.png" alt="Icon 4" class="chat-icon">
+        </div>
+
+        <!-- Ecran de chat avec le chat screen -->
+        <div id="chat-screen">
+            <div id="messages-container">
+                <!-- Exemple de message -->
+                <p><span class="timestamp" style="font-style: italic;">Vous discutez à présent sur le salon Laboratoire KiwiX</p>
+            </div>
+        </div>
+
+        <!-- Liste des utilisateurs connectés -->
+        <div id="user-list">
+            <!-- Boutons Scroll Up et Down -->
+            <button id="scroll-up-btn"><img src="assets/btn_listing.png" alt="Scroll Up"></button>
+            <ul id="users">
+                <!-- Exemple de nom d'utilisateur -->
+                <li style="color: #241B65;">kasparov</li>
+                <li>tigrenoir</li>
+            </ul>
+            <button id="scroll-down-btn"><img src="assets/btn_listing.png" alt="Scroll Down"></button>
+        </div>
+    </div>
+
+
+    <!-- Section de sélection des feutres -->
+    <div id="pen-selection" style="display: none;">
+        <img src="assets/pen.svg" alt="Pen 1" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 2" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 3" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 4" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 5" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 6" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 7" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 8" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 9" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 10" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 11" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 12" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 13" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 14" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 15" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 16" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 17" class="pen-icon">
+        <img src="assets/pen.svg" alt="Pen 18" class="pen-icon">
+        <!-- Ajoutez d'autres feutres ici -->
+    </div>
+
+    <!-- Zone de saisie sous l'écran de chat -->
+    <div id="chat-input-container">
+        <input type="text" id="chat-input">
+    </div>
+
+    <!-- Element de redimensionnement -->
+    <div id="resize-handle"></div>
+
+</div>
+
+
+        <!-- Fiche Utilisateur -->
+<div id="fiche-container" style="cursor: grab; left: 221px; top: 212px; width: 290px;">
+    <div id="fiche-avatar-level">
+        <div id="fiche-avatar-container">
+            <div id="fiche-avatar">
+                <img id="fiche-avatar-img" src="assets/kasparov.png" alt="Avatar">
+                <img id="fiche-avatar-frame" src="assets/cadre_avatar.svg" alt="Cadre Avatar">
+            </div>
+            <div id="fiche-level-container">
+                <div id="fiche-progress-bar">
+                    <div class="fiche-progress-line"></div>
+                    <div class="fiche-progress-line"></div>
+                    <div class="fiche-progress-line"></div>
+                    <div class="fiche-progress-line"></div>
+                    <div class="fiche-progress-line"></div>
+                    <div class="fiche-progress-line"></div>
+                    <div class="fiche-progress-line"></div>
+                    <div class="fiche-progress-line"></div>
+                    <div class="fiche-progress-line"></div>
+                </div>
+                <div id="fiche-level-text-container">
+                    <span id="fiche-level-text">NIV 32</span>
+                </div>
+            </div>
+        </div>
+        <div id="fiche-info-container">
+            <div id="fiche-user-info">
+                <img id="status-icon" src="assets/enligne.svg" alt="Statut">
+                <span id="fiche-username">kasparov</span>
+                <span id="fiche-age">30 ans - Val-de-Marne</span>
+            </div>
+            <div id="fiche-icons">
+                <img class="fiche-icon" src="assets/fiche_icone_chat.svg" alt="Chat Icon">
+                <img class="fiche-icon" src="assets/fiche_icone_mail.svg" alt="Mail Icon">
+                <img class="fiche-icon" src="assets/fiche_icone_ami.svg" alt="Ami Icon">
+                <img class="fiche-icon" src="assets/fiche_icone_bloquer.svg" alt="Bloquer Icon">
+            </div>
+        </div>
+    </div>
+    <button id="close-btn"><img src="assets/fiche_close.svg" alt="Fermer"></button>
+    <button id="expand-btn"><img src="assets/fiche_bouton_expand.png" alt="Expand" style="width: 20px;"></button>
+
+    <!-- Section étendue qui s'affiche lors du clic sur le bouton expand -->
+<div id="fiche-expanded-section" style="display: none;">
+    <div id="fiche-menu">
+        <button id="frutiz-btn" class="fiche-menu-btn active">Frutiz</button>
+        <button id="perso-btn" class="fiche-menu-btn">Perso</button>
+        <button id="scores-btn" class="fiche-menu-btn">Scores</button>
+        <button id="bonus-btn" class="fiche-menu-btn">Bonus</button>
+    </div>
+
+    <div id="frutiz-section" class="fiche-content" style="display: block;">
+        <div id="fiche-frutisigne-title">FrutiSigne</div>
+        <div id="fiche-frutisigne">
+            <img src="assets/frutisigne_fraise.svg" alt="Frutisigne">
+            <img class="middle" src="assets/frutisigne_kiwi.svg" alt="Frutisigne">
+            <img src="assets/frutisigne_fraise.svg" alt="Frutisigne">
+        </div>
+       
+        <div id="fiche-info">
+            <p><span>frutiJob:</span> <span>Animateur m'enfin !</span></p>
+            <p><span>consécration:</span> <span>90%</span></p>
+            <p><span>niveau:</span> <span>20</span></p>
+            <p><span>frutiAge:</span> <span>34 mois</span></p>
+            <p><span>inscription:</span> <span>15 avr 03</span></p>
+        </div>
+        
+    </div>
+
+<!-- Contenu de l'onglet "perso" -->
+<div id="perso-section" class="fiche-content">
+    <div class="perso-container">
+        <div class="perso-separator"></div> <!-- Séparateur du haut -->
+
+        <div class="perso-info-row">
+            <span class="perso-label">Prénom :</span>
+            <span class="perso-value">Rémi</span>
+        </div>
+        <div class="perso-info-row">
+            <span class="perso-label">Nom :</span>
+            <span class="perso-value">***</span>
+        </div>
+        <div class="perso-info-row">
+            <span class="perso-label">Date de naissance :</span>
+            <span class="perso-value">01 oct 93</span>
+        </div>
+        <div class="perso-info-row">
+            <span class="perso-label">Activité :</span>
+            <span class="perso-value">/</span>
+        </div>
+        <div class="perso-info-row">
+            <span class="perso-label">Pays :</span>
+            <span class="perso-value">France</span>
+        </div>
+        <div class="perso-info-row">
+            <span class="perso-label">Région :</span>
+            <span class="perso-value">Val-de-Marne</span>
+        </div>
+        <div class="perso-info-row">
+            <span class="perso-label">Ville :</span>
+            <span class="perso-value">Cachan</span>
+        </div>
+
+        <div class="perso-separator"></div> <!-- Séparateur du bas -->
+    </div>
+</div>
+
+    <div id="scores-section" class="fiche-content" style="display: none;">
+        <p><span>N/B</span></p>
+    </div>
+
+    <div id="bonus-section" class="fiche-content" style="display: none;">
+        <p><span>N/C</span></p>
+    </div>
+</div>
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

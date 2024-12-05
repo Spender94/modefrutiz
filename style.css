@@ -1,0 +1,2005 @@
+
+/* Style général */
+
+@font-face {
+    font-family: 'LCD2';
+    src: url('fonts/LCD2 Bold.ttf') format('truetype'); /* Ajustez le chemin selon l'endroit où vous avez placé la police */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #A7DC6B;
+    overflow: hidden; /* Pour éviter les barres de défilement */
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: calc(100% - 160px);
+}
+
+#profile-section {
+    display: flex;
+    align-items: flex-start;
+    padding: 4px;
+    width: 99%;
+    z-index: 1;
+    border-bottom: 1.75px solid #444444;
+    border-right: 1.75px solid #444444;
+    border-top-left-radius: 0;
+    border-top: none;
+    border-left: none;
+    overflow: hidden;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: white;
+
+}
+
+/* Avatar Styles */
+#avatar-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    height: 80px;
+}
+
+#avatar {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-left: 5px;
+}
+
+#avatar-img {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    width: 95%;
+    height: 95%;
+    border-radius: 5px;
+    z-index: 3;
+    object-fit: cover;
+}
+
+#avatar-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    border-radius: 5px;
+    border: 1px solid #666666;
+    box-shadow: 0 0 0 3px #DDDDDD;
+}
+
+#avatar-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* Info Container Styles */
+#info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+/* Level Bar Styles */
+#level-bar {
+    position: relative;
+    background-color: #C8F39A;
+    border: 1.25px solid #a7a7a7;
+    box-shadow: 0 0 0 3px #DDDDDD;
+    border-radius: 2px;
+    padding: 2px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 5px;
+    max-width: 160px;
+}
+
+#level-bar:after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 50px; /* Ajustez la taille selon vos besoins */
+    height: 50px; /* Ajustez la taille selon vos besoins */
+    background-image: url('assets/reflets_niveau.svg'); /* Chemin vers votre image */
+    background-size: contain; /* Ajuste l'image pour qu'elle s'adapte au conteneur */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+}
+
+/* Conteneur des barres de progression */
+#progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    align-items: flex-start;
+    margin-right: 7px;
+}
+
+#progress-bar {
+    flex-direction: column;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+}
+
+.progress-line {
+    width: 120%;
+    height: 2px; /* Assurez-vous que la hauteur est cohérente */
+    background-color: #72A62C;
+    margin: 1px 0; /* Uniformisez les marges pour chaque barre */
+}
+
+#level-text-container {
+    font-family: Arial;
+    font-weight: bold;
+    color: #4E8030;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 2px;
+letter-spacing: -0.025em;
+}
+
+#ranking-and-access {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 0;
+    flex-shrink: 0;
+}
+
+#ranking-container {
+    display: flex;
+    align-items: center;
+margin-bottom: 1px;
+}
+
+#ranking-icon {
+    width: 15px;
+    height: 20px;
+    margin-right: 2px;
+}
+
+#ranking-score {
+    color: #73b01e;;
+
+    font-family: 'LCD2', sans-serif; /* Utilise la police LCD2 */
+    font-size: 22px; /* Ajustez la taille selon vos besoins */
+
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #73b01e;
+}
+
+#quick-access-container {
+    display: flex;
+    gap: 2px;
+    margin-top: 2px;
+}
+
+.quick-access-icon {
+    width: 17px;
+    height: 15px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.quick-access-icon:hover {
+    opacity: 1;
+}
+
+/* Emote Container Styles */
+#emote-container {
+    justify-content: space-between;
+    padding: 5px 5px;
+    border-radius: 5px;
+    width: 160px;
+}
+
+.emote-icon {
+    border: 1px solid #DDDDDD; /* Bordure grise de 1px */
+    border-radius: 20px; /* Bordure légèrement arrondie */
+    box-shadow: 0 0 0 1px #DDDDDD; /* Optionnel : ombre légère pour un effet 3D */
+}
+
+
+/* Style des icônes du bureau */
+#desktop-area {
+    position: relative; /* Important pour que les enfants en position absolue soient relatifs à ce conteneur */
+    background-color: #A7DC6B;
+    height: 100vh;
+    padding: 10px;
+}
+
+.desktop-icon {
+    position: absolute; /* Position absolue pour permettre le déplacement libre */
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    z-index: 2; /* Assure que les icônes restent au-dessus du bureau */
+    cursor: pointer; /* Assurez-vous que cette ligne est présente */
+
+}
+
+.desktop-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.desktop-icon span {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #4D5744;
+    font-family: Verdana;
+
+}
+
+#mandala-container {
+    position: absolute;
+    right: 170px;
+    top: 5px;
+    width: 240px;
+    height: 120px; /* Hauteur ajustée pour correspondre à la moitié de la roue */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 5;
+    overflow: hidden; /* Masque les parties qui dépassent */
+}
+
+#mandala-frame {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+#mandala-wheel {
+    width: 320px; /* Largeur de la roue pour qu'elle s'insère parfaitement dans le conteneur */
+    height: 320px; /* Hauteur totale de la roue */
+    position: relative;
+    top: -108px; /* Positionne la roue pour ne montrer que la moitié inférieure */
+    left: 40px; /* Positionne la roue pour ne montrer que la moitié inférieure */
+    z-index: 1;
+}
+
+#mandala-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.mandala-button {
+    position: absolute;
+    cursor: pointer;
+    z-index: 4;
+}
+
+#mandala-btn-prev {
+    top: 30px;
+    left: 1px;
+    height: 25px;
+}
+
+#mandala-btn-next {
+    top: 30px;
+    right: 1px;
+    height: 25px;
+}
+
+#mandala-btn-refresh {
+    bottom: 35px;
+    left: 1px;
+    height: 25px;
+}
+
+#mandala-btn-switch {
+    bottom: 35px;
+    right: 1px;
+    height: 25px;
+}
+
+
+#frusion-background {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 145px;
+    height: 90px;
+    background-color: #f8f8f8;
+    z-index: 0;
+    border-radius: 20px;
+}
+
+#frusion-container {
+    position: absolute;
+    top: -8px;
+    right: 0px;
+    width: 150px;
+    height: 110px;
+    z-index: 103;
+    background: url(assets/frusionv2.svg) no-repeat center center;
+    background-size: contain;
+    border-radius: 0 0px 15px 15px;
+}
+
+
+
+        #lecteur-frusion {
+            position: absolute;
+            width: 70px;
+            height: 200px;
+            right: 6px;
+            transform: translateX(-50%);
+            top: -56px;
+            z-index: 1;
+            background: url(assets/lecteur_frusion.png) no-repeat center center;
+            background-size: contain;
+            transition: top 0.5s ease-out, transform 1s ease-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+.rotate {
+    animation: rotate-animation 0.08s infinite linear; /* Modifiez la durée ici pour accélérer */
+}
+
+/* Définition de l'animation */
+@keyframes rotate-animation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Fiche Utilisateur */
+#fiche-container {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: auto;
+    background-color: white;
+    border: 1.5px solid #545454;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    cursor: grab;
+
+}
+
+#fiche-avatar-level {
+    display: flex;
+    align-items: center;
+}
+
+#fiche-avatar-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    background-color: #C8F39A;
+    border: 1px solid #666666;
+    box-shadow: 0 0 0 2px #DDDDDD;
+    border-radius: 5px;
+}
+
+#fiche-avatar {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+#fiche-avatar-img {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    z-index: 3;
+    object-fit: cover;
+}
+
+#fiche-avatar-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+}
+
+#fiche-level-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+}
+
+#fiche-progress-bar {
+    flex-direction: column;
+    justify-content: center;
+    height: 16px;
+    width: 25px;
+    padding-bottom: 5px;
+}
+
+.fiche-progress-line {
+    width: 120%;
+    height: 2px;
+    background-color: #72A62C;
+    margin-bottom: 1px;
+
+}
+
+#fiche-level-text-container {
+    font-weight: bold;
+    font-family: Arial;
+    color: #4E8030;
+    font-size: 10px;
+    text-align: center;
+    margin-top: 6px;
+}
+
+#fiche-user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+#status-icon {
+    width: 9px;
+    height: 9px;
+}
+
+#fiche-username {
+    font-weight: bold;
+font-family: Verdana;
+    font-size: 10px;
+    color: #290D64;
+}
+
+#fiche-age {
+    font-size: 12px;
+}
+
+#fiche-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-top: 12px;
+}
+
+.fiche-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 0 1.5px #DDDDDD;
+    border-radius: 3px;
+}
+
+#expand-btn,
+#close-btn {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+#expand-btn {
+    position: absolute; /* Conserve la position absolue */
+    top: 32px; /* Ajustez cette valeur pour la position verticale souhaitée */
+    right: 7px; /* Ajustez cette valeur pour la position horizontale souhaitée */
+    width: 25px;
+    height: 25px;
+    z-index: 101;
+    cursor: pointer;
+}
+
+#close-btn {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    z-index: 101; /* S'assurer qu'il est au-dessus des autres éléments */
+}
+
+/* Section étendue de la fiche */
+#fiche-expanded-section {
+    margin-top: 10px;
+    display: none;
+    flex-direction: column;
+    width: 99%;
+    border: 1px solid #666666;
+    padding-top: 10px;
+    background-color: #E0F4C5;
+    border: 2px solid #a7dc6b;
+    box-shadow: 0 0 0 2px #DDDDDD;
+    border-radius: 2px;
+    position: relative;
+}
+
+#fiche-menu {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    margin-top: -8px;
+    padding: 5 10px;
+    border-bottom: 2px solid #a7dc6b;
+}
+
+.fiche-menu-btn {
+    /* padding: 5px 10px; */
+    background-color: #faebd700;
+    color: #446531;
+    cursor: pointer;
+    width: 70px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    font-family: Verdana;
+    border-color: #7fffd400;
+}
+
+#fiche-frutisigne-title {
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #446531;
+    position: relative;
+}
+
+#fiche-frutisigne-title::before,
+#fiche-frutisigne-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1.5px;
+    background-color: #a7dc6b; /* Couleur des barres horizontales */
+}
+
+#fiche-frutisigne-title::before {
+    left: 10px;
+}
+
+#fiche-frutisigne-title::after {
+    right: 10px;
+}
+
+#fiche-frutisigne {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 70px;
+    position: relative;
+    border-bottom: 1.5px solid #a7dc6b; /* Ajout du séparateur sous les images des frutisignes */
+    padding-bottom: 10px;
+    margin-left: 10px;  /* Marge gauche pour le séparateur */
+    margin-right: 10px; /* Marge droite pour le séparateur */
+}
+
+#fiche-frutisigne img {
+    width: 30px;
+    height: 30px;
+}
+
+#fiche-frutisigne img.middle {
+    width: 55px; /* Double de la taille des frutisignes sur les côtés */
+    height: 55px;
+}
+
+
+#fiche-info p {
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: verdana;
+    color: #444444;
+}
+
+.fiche-menu-btn {
+    /* Ajoutez les styles pour les boutons d'onglets ici */
+}/* Conteneur principal de la section "perso" */
+.perso-container {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 10px;
+    background-color: #E0F4C5; /* Couleur de fond spécifique à la section perso */
+}
+
+/* Séparateur spécifique à la section "perso" */
+.perso-separator {
+    width: 100%;
+    height: 2px;
+    background-color: #a7dc6b; /* Couleur du séparateur */
+    margin: 5px 0;
+}
+
+/* Style de chaque ligne d'information dans la section "perso" */
+.perso-info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 0; /* Ajuste l'espace entre chaque ligne */
+}
+
+/* Libellé (gauche) spécifique à la section "perso" */
+.perso-label {
+    color: #446531;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+    text-align: left;
+    flex: 1; /* Prend l'espace disponible à gauche */
+}
+
+/* Valeur (droite) spécifique à la section "perso" */
+.perso-value {
+    color: #444444;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+    text-align: right;
+    flex: 1; /* Prend l'espace disponible à droite */
+}
+
+/* Style par défaut des boutons du menu fiche */
+.fiche-menu-btn {
+    background-color: transparent;
+    color: #446531;
+    cursor: pointer;
+    width: 70px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    font-family: Verdana;
+    border: none;
+    transition: color 0.3s ease;
+}
+
+/* Style spécifique pour le bouton actif */
+.fiche-menu-btn.active {
+    color: #811C22; /* Couleur du texte lorsqu'il est actif */
+}
+
+
+/* Cacher les contenus des onglets par défaut */
+.tab-content {
+    display: none;
+}
+
+/* Styles pour la fenêtre de Scores */
+#scores-window {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 650px;
+    background-color: #ffffff;
+    border: 1.5px solid #545454;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: Verdana, sans-serif;
+display: none;
+}
+
+#scores-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+    color: #444444;
+    font-size: 10px;
+    border-radius: 90px;
+    position: relative;
+}
+
+#scores-title {
+    padding-left: 10px;
+    position: absolute;
+    left: 10px;
+}
+
+#close-scores-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+    font-size: 18px;
+    color: #806000;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+#minimize-scores-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+    font-size: 18px;
+    color: #806000;
+    position: absolute;
+    right: 22px;
+    top: 0px;
+}
+
+#scores-content {
+    display: flex;
+    padding: 0px 7px;
+    background-color: #FFFFFF;
+}
+
+#scores-menu {
+    width: 150px;
+    background-color: #FBD887;
+    padding-right: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 5px;
+    border-radius: 3px;
+    border: 1.5px solid #f3c761;
+    box-shadow: 0 0 0 2px #DDDDDD;
+    position: relative;
+}
+
+#scores-menu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to bottom, #FFF0D1, #FBD98D);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    z-index: 1;
+}
+
+#scores-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#scores-menu li {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    color: #444444;
+    cursor: pointer;
+    font-family: Verdana;
+}
+
+#scores-menu li:hover {
+    background-color: #FFE29A;
+    border-radius: 5px;
+}
+
+#scores-details {
+    flex-grow: 1;
+    padding-left: 15px;
+    background-color: #FBD887;
+    border-bottom-right-radius: 10px;
+    border-radius: 3px;
+    margin-left: 10px;
+    border: 1.5px solid #f3c761;
+    box-shadow: 0 0 0 2px #DDDDDD;
+    position: relative;
+}
+
+#scores-details td:first-child {
+    max-width: 150px; /* Ajustez cette valeur selon la longueur moyenne des pseudos */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle; /* Assure un alignement vertical correct */
+}
+
+#scores-details td {
+    padding: 5px 2px; /* Ajustez les valeurs de padding pour mieux aligner les éléments */
+    vertical-align: middle; /* Assure que tout contenu dans les cellules est centré verticalement */
+    text-align: left; /* Assure un alignement à gauche pour tout le contenu de la cellule */
+
+}
+
+#scores-details th,
+#scores-details td {
+    padding: 5px;
+    color: #806000;
+    font-size: 12px;
+    font-family: Verdana, sans-serif;
+    white-space: nowrap; /* Empêche le passage à la ligne */
+    vertical-align: middle; /* Pour aligner les éléments au centre verticalement */
+}
+
+#scores-table td:nth-child(3) {
+    text-align: left; /* Aligner le texte à gauche */
+    padding-left: 5px; /* Ajoutez un léger padding pour l'espacement */
+}
+
+
+
+#scores-details td img.avatar {
+    flex-shrink: 0; /* L'avatar ne rétrécit pas, il reste fixe */
+    margin-right: 5px;
+}
+
+#scores-details::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to bottom, #FFF0D1, #FBD98D);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    z-index: 1;
+}
+
+#scores-details h3 {
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #806000;
+    font-family: verdana;
+    text-align: center;
+}
+
+#scores-table th, #scores-table td {
+    padding: 2px 5px; /* Réduire le padding horizontal et vertical */
+    color: #806000;
+    font-size: 12px;
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    line-height: 2; /* Réduire la hauteur de ligne */
+}
+
+#scores-table th {
+    font-weight: bold;
+}
+
+#scores-table td {
+    margin: 0; /* Supprime les marges supplémentaires éventuelles */
+}
+
+#scores-table th:first-child,
+#scores-table td:first-child {
+    font-weight: bold; /* Met le texte en gras */
+}
+
+#scores-table th:nth-child(4), /* En-tête de la colonne Temps */
+#scores-table td:nth-child(4) { /* Cellules de la colonne Temps */
+    padding-left: 100px; /* Ajoute une marge à gauche */
+}
+
+#scores-table th:nth-child(2), /* En-tête de la colonne Avatar */
+#scores-table td:nth-child(2), /* Cellules de la colonne Avatar */
+#scores-table th:nth-child(3), /* En-tête de la colonne Frutiz */
+#scores-table td:nth-child(3) { /* Cellules de la colonne Frutiz */
+    padding-left: 0px;
+}
+
+#scores-table td img {
+    vertical-align: middle;
+}
+
+#scores-table th, #scores-table td {
+    line-height: 0.5; /* Ajustez cette valeur pour réduire l'interligne */
+    padding: 1px 5px; /* Vous pouvez également réduire le padding si nécessaire */
+}
+
+.ecurie-icon {
+    width: 22px; /* Augmentez cette valeur pour agrandir l'icône */
+    height: 18px; /* Augmentez cette valeur pour agrandir l'icône */
+    vertical-align: middle;
+}
+
+#pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between; /* Positionne les boutons aux extrémités gauche et droite */
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+
+
+#prev-page, #next-page {
+    background-color: #FFA0B0;
+    border: 1px solid #E58A6D;
+    padding: 1px 16px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #2a2a2a; /* Couleur du texte en blanc */
+    font-weight: bold; /* Texte en gras */
+    transition: background-color 0.3s ease;
+}
+
+#prev-page:hover, #next-page:hover {
+    background-color: #E58A6D; /* Couleur de fond au survol */
+}
+
+#pagination button:hover {
+    background-color: #FFD479;
+}
+
+#scores-footer {
+    background-color: #ffffff;
+    padding: 5px 10px;
+    text-align: right;
+    color: #806000;
+    font-size: 12px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.menu-title {
+
+    color: #A65A00;
+    font-size: 14px !important;
+}
+
+.menu-title img {
+    margin-right: 5px;
+z-index: 3;
+}
+
+.menu-item img {
+    margin-right: 1px;
+    width: 20px;
+    height: 20px;
+}
+
+.menu-item {
+    padding-left: 5px;
+}
+
+.menu-item:hover {
+    background-color: #FFE29A;
+    border-radius: 5px;
+}
+
+#top-medalist {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #806000;
+}
+
+.medalist {
+    display: flex;
+    align-items: center;
+}
+
+
+.medalist-avatar {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.medalist-score {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.avatar {
+    width: 22px;
+    height: 22px;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+.rank-icon {
+    width: 20px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+#scores-favicon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Styles pour l'onglet minimisé */
+#minimized-scores-tab {
+    position: fixed;
+    top: 95px;
+    left: 0px;
+    width: 100px;
+    height: 20px;
+    background-color: #ffffff;
+    border-right: 2px solid #444444;
+    border-bottom: 2px solid #444444;
+    border-top: 1.5px solid #908F93;
+    border-left: none;
+    border-radius: 0 0 10px 0;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 4px;
+    line-height: 25px;
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+    color: #444444;
+    box-shadow: inset 0 0 0 1.5px #DADADA;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#minimized-scores-tab img {
+    margin-right: 5px;
+}
+
+
+
+#tabs-container {
+    position: fixed;
+    top: 94px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.fixed-tab, .dynamic-tab {
+    width: 100px;
+    height: 20px;
+    background-color: #ffffff;
+    border-right: 2px solid #444444;
+    border-bottom: 2px solid #444444;
+    border-top: 1.5px solid #908F93;
+    border-left: none;
+    border-radius: 0 0 10px 0;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 4px;
+    line-height: 25px;
+    font-family: Verdana, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: #444444;
+    box-shadow: inset 0 0 0 2px #DADADA;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: -11px; /* Espace entre les onglets */
+}
+
+#dynamic-tabs {
+    display: flex; /* Affiche les onglets en ligne */
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+    gap: 5px; /* Ajoute un espacement entre les onglets */
+}
+
+.fixed-tab {
+    cursor: default; /* Onglet non cliquable */
+}
+
+.fixed-tab img, .dynamic-tab img {
+    margin-right: 5px;
+    width: 12px; /* Ajustez la taille de l'icône selon vos besoins */
+    height: 12px;
+}
+
+#scores-window, #fiche-container {
+    position: absolute; 
+    z-index: 3; /* Initialement, toutes les fenêtres ont le même z-index */
+    /* Autres styles ici */
+}
+
+#top-medalist {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Assure l'alignement vertical */
+    margin-bottom: 10px;
+    margin-top: 7px;
+    font-size: 12px;
+    color: #806000;
+    gap: 10px; /* Espace entre les médailles et les pseudos */
+}
+
+.medalist {
+    display: flex;
+    align-items: center;
+}
+
+.medal-wrapper {
+    position: relative;
+    width: 30px; /* Ajustez la largeur de la médaille */
+    height: 30px; /* Ajustez la hauteur de la médaille */
+    margin-right: 5px; /* Espace entre la médaille et le pseudo */
+}
+
+.medal-background {
+    width: 100%;
+    height: 100%;
+}
+
+.medal-icon {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 70%;
+    height: 70%;
+    object-fit: contain; /* Assure que l'icône du jeu s'ajuste bien à la médaille */
+}
+
+.medalist-name {
+    font-weight: bold;
+    color: #444444;
+    font-size: 10px;
+}
+/* Fenêtre Salons */
+#salons-window {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 250px;
+    background-color: #ffffff;
+    border: 1.5px solid #545454;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: Verdana, sans-serif;
+    display: none; /* Cache initialement */
+}
+
+#salons-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+    color: #444444;
+    font-size: 12px;
+    position: relative;
+}
+
+#salons-content {
+    padding: 5px;
+    background-color: #ffffff;
+    max-height: 300px;
+    overflow-y: auto;
+    border-bottom-left-radius: 10px; /* Arrondi des angles */
+    border-bottom-right-radius: 10px; /* Arrondi des angles */
+}
+
+/* Fenêtre Salons */
+#salons-window {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 250px;
+    background-color: #ffffff;
+    border: 1.5px solid #545454;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: Verdana, sans-serif;
+    display: none; /* Cache initialement */
+    padding-bottom: 3px;
+}
+
+#salons-header {
+    display: flex;
+    justify-content: space-between; /* Assure que les éléments occupent l'espace */
+    align-items: center; /* Centrer verticalement les éléments */
+    background-color: #ffffff;
+    padding: 2px; /* Ajuste le padding pour réduire l'espacement général */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+    color: #444444;
+    font-size: 12px;
+    position: relative;
+}
+
+.pseudo {
+    font-weight: bold; /* Met le pseudo en gras */
+}
+
+#salons-header .header-left {
+    display: flex;
+    align-items: center; /* Assure que le titre est aligné verticalement avec le favicon */
+    gap: 5px; /* Réduit l'espacement entre le favicon et le texte du titre */
+}
+
+#salons-header .header-right {
+    display: flex;
+    align-items: center; /* Aligne verticalement les icônes */
+    gap: 5px; /* Réduit l'espace entre les icônes de réduction et de fermeture */
+} 
+#salons-content {
+    padding: 5px;
+    background-color: #ffffff;
+    max-height: 300px;
+    overflow-y: auto;
+    border-bottom-left-radius: 10px; /* Arrondi des angles */
+    border-bottom-right-radius: 10px; /* Arrondi des angles */
+}
+
+/* Style de la liste et des éléments */
+#salons-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px; /* Arrondi des angles du conteneur */
+}
+
+#salons-list-container {
+    position: relative;
+    /* padding: 5px; */
+    background-color: #ffffff;
+    border: 1px solid #e58a6d;
+    box-shadow: 0 0 0 2px #DDDDDD;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.salon-item {
+    padding: 5px;
+    font-size: 12px;
+    color: #A55B55; /* Couleur de la typo des noms de salons */
+    background-color: #F4AEAC;
+    transition: background-color 0.3s ease; /* Ajoute une transition pour un effet plus fluide */
+}
+
+/* Alternance de couleur pour les items */
+.salon-item:nth-child(even) {
+    background-color: #F7CBCA; /* Couleur alternative pour les éléments pairs */
+}
+
+/* Effet de surbrillance au survol */
+.salon-item:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Blanc avec une opacité de 50% */
+    cursor: pointer; /* Change le curseur en pointeur pour indiquer que c'est cliquable */
+}
+
+/* Styles pour les arrondis des éléments de la liste */
+.salon-item:first-child {
+    border-top-left-radius: 3px; /* Arrondi coin supérieur gauche */
+    border-top-right-radius: 3px; /* Arrondi coin supérieur droit */
+}
+
+.salon-item:last-child {
+    border-bottom-left-radius: 3px; /* Arrondi coin inférieur gauche */
+    border-bottom-right-radius: 3px; /* Arrondi coin inférieur droit */
+}
+
+/* Style du bouton "Créer un Salon" */
+#salons-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+#create-salon-input {
+    width: 100px; /* Ajuste selon la largeur désirée */
+    padding: 3px 10px;
+    background-color: #E4FFBF;
+    border: 1px solid #B9D48C;
+    border-radius: 20px;
+    margin-left: 5px; /* Espacement entre le bouton et l'input */
+    font-size: 12px;
+}
+
+
+#create-salon-btn {
+    width: auto;
+    height: 20px;
+    background-image: url(assets/btn_next.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    /* padding: 0; */
+    margin-left: 2px;
+    background-color: white;
+    font-family: verdana;
+    font-size: 12px;
+}
+}
+
+#create-salon-btn:active {
+    transform: scale(0.95); /* Effet de clic */
+}
+
+/* Barre de défilement personnalisée */
+#salons-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+#salons-content::-webkit-scrollbar-track {
+    background: #F7CBCA;
+}
+
+#salons-content::-webkit-scrollbar-thumb {
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+#salons-content::-webkit-scrollbar-thumb:hover {
+    background: #EED3D1;
+}
+
+#minimize-salons-btn, #close-salons-btn {
+    background: none; /* Supprime le fond */
+    border: none; /* Supprime les bordures */
+    padding: 0; /* Supprime le padding */
+    margin: 0; /* Supprime la marge */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
+
+#minimize-salons-btn img, #close-salons-btn img {
+    width: 20px;
+    height: 20px;
+    display: block; /* Assure que les images remplissent tout l'espace du bouton */
+}
+
+
+
+/* Fenêtre de chat */
+#chat-window {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 400px;
+    height: auto;
+    background-color: #ffffff;
+    border: 1.5px solid #545454;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: Verdana, sans-serif;
+    display: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* En-tête de la fenêtre de chat */
+#chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+    color: #444444;
+    font-size: 12px;
+    position: relative;
+}
+
+/* Contenu de la fenêtre de chat */
+#chat-content {
+    display: flex;
+    flex: 1;
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 5px;
+}
+
+/* Style des icônes latérales */
+#chat-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-right: 5px;
+}
+
+.chat-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Style de l'écran de chat */
+#chat-screen {
+    background-color: #CCF599;
+    border: 2px solid #A9E665;
+    border-radius: 2px;
+    overflow-y: auto;
+    margin-right: 5px;
+    overflow-y: auto;
+    font-size: 11px;
+    padding-left: 5px;
+    box-shadow: 0 0 0 1.5px #E0DEE2;
+}
+
+#chat-screen::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-screen::-webkit-scrollbar-track {
+    background: #E0E0E0;
+    border-radius: 5px;
+}
+
+#chat-screen::-webkit-scrollbar-thumb {
+    background-color: #DDDDDD;
+    border-radius: 5px;
+    border: 1px solid #BBB;
+}
+
+#chat-screen::-webkit-scrollbar-thumb:hover {
+    background-color: #C4C4C4;
+}
+
+#messages-container p {
+    margin: 5px 0; /* Réduit la marge entre les messages à 5px */
+}
+
+/* Zone de saisie */
+#chat-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    /* margin: 5px; */
+    width: calc(100% - 20px);
+}
+
+#chat-input {
+    width: 100%;
+    padding: 2px;
+    border-top: 2px solid #CCCCCC;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 5px;
+    font-size: 10px;
+    margin-left: 25px;
+    margin-right: 120px;
+    background-color: #EEEEEE;
+}
+
+#chat-input:focus {
+    outline: none; /* Supprime le contour par défaut */
+    border-top: 2px solid #CCCCCC;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 5px;
+}
+
+/* Liste des utilisateurs connectés */
+#user-list {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 120px;
+    background-color: #e9f8d100;
+    border-radius: 7px;
+    margin-right: 3px;
+    margin-left: 3px;
+    position: relative;
+    padding-top: 30px;
+}
+
+#users {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    flex: 1;
+    border-radius: 10px;
+    background-color: #e9f8d1;
+    border: 2px solid #C2F38E;
+}
+
+#users li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: #D8F6B6;
+    color: #BC4144;
+    font-family: Verdana;
+}
+
+#users li:first-child {
+    margin-top: 10px;
+}
+
+#users li:nth-child(even) {
+    background-color: #E9F8D1;
+}
+
+/* Handle de redimensionnement */
+#resize-handle {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: se-resize;
+}
+
+/* Boutons de défilement */
+#scroll-up-btn,
+#scroll-down-btn {
+    height: 24px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+}
+
+#scroll-up-btn img, 
+#scroll-down-btn img {
+    width: 120px;
+    margin-left: -7px;
+}
+
+#scroll-up-btn {
+    top: 0px;
+}
+
+#scroll-down-btn {
+    bottom: -30px;
+}
+
+#pen-selection {
+    margin-left: 30px;
+
+}
+
+/* Boutons pour réduire et fermer */
+
+#minimize-chat-btn,
+#close-chat-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent; /* Fond transparent */
+    border: none; /* Pas de bordure */
+}
+
+#minimize-chat-btn img,
+#close-chat-btn img {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+#minimize-chat-btn img {
+    margin-right: -15px !important;
+}
+
+
+
+
+
+/* Style de la languette pour ouvrir/fermer la barre */
+#contacts-tab {
+    position: fixed; /* Assurez-vous que la languette reste en bas de la page */
+    bottom: 0; /* Positionne la languette en bas de la page */
+    left: 2px;
+    width: 15px;
+    height: 90px;
+    background-color: #ffffff;
+    color: #444444;
+    writing-mode: vertical-rl; /* Pour écrire verticalement */
+    text-align: center;
+    cursor: pointer;
+    z-index: 1001;
+    border-top: 2px solid #dddddd; /* Bordure interne en haut */
+    border-right: 2px solid #dddddd; /* Bordure interne à droite */
+    border-bottom: 2px solid #dddddd; /* Bordure interne en bas */
+    box-shadow: 2px 0 0 0 #444444, 0 -2px 0 0 #444444, 0 2px 0 0 #444444; /* Ombres pour les côtés droit, haut et bas */
+    border-top-right-radius: 10px; /* Coin supérieur droit arrondi */
+    border-bottom-right-radius: 10px; /* Coin inférieur droit arrondi */
+    border-left: 3px solid #ffffff; /* Bordure interne en bas */
+    transition: background-color 0.3s ease;
+font-family: Verdana;
+font-size: 11px;
+
+}
+
+
+#contacts-tab:hover {
+    background-color: #ffffff;
+}
+
+/* Barre de contacts fermée par défaut */
+#contacts-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100vh;
+    background-color: #ffffff;
+    /* border-right: 2px solid #444444; */
+    /* outline: 2px solid #dddddd; */
+    /* outline-offset: -2px; */
+    transition: width 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-right: 2px solid #dddddd;
+    box-shadow: 0 0 0 2px #444444;
+}
+
+
+/* Barre ouverte */
+#contacts-bar.open {
+    width: 132px; /* Largeur de la barre lorsqu'elle est ouverte */
+}
+
+/* Contenu interne de la barre des contacts */
+#contacts-content {
+    display: none; /* Cache le contenu par défaut */
+    position: absolute;
+    top: 0; /* Positionne le contenu en haut de la barre */
+    left: 0;
+    width: 100%; /* Largeur du contenu pour occuper tout l'espace de la barre */
+    overflow-y: auto; /* Permet le défilement si le contenu dépasse */
+}
+
+/* Afficher le contenu lorsque la barre est ouverte */
+#contacts-bar.open #contacts-content {
+    display: block; /* Montre le contenu lorsqu'elle est ouverte */
+}
+
+/* Masque les éléments internes du contenu par défaut */
+.contacts-header,
+.contacts-list {
+    display: none; /* Masque ces éléments par défaut */
+}
+
+/* Afficher le contenu des contacts quand la barre est ouverte */
+#contacts-bar.open .contacts-header,
+#contacts-bar.open .contacts-list {
+    display: block; /* Montre les éléments quand la barre est ouverte */
+}
+
+.contacts-header {
+    font-weight: bold;
+    background-color: #999999;
+    padding: 2px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border-radius: 0 20px 20px 0;
+    color: #ffffff;
+    font-size: 10px;
+    font-family: Verdana;
+    margin-top: 2px;
+padding-left: 5px;
+
+}
+
+.contacts-header::before {
+    content: '';
+    display: inline-block;
+    width: 10px; /* Taille du cercle */
+    height: 10px; /* Taille du cercle */
+    background-color: #cccccc; /* Couleur du cercle */
+    border-radius: 50%; /* Rend l'élément rond */
+    position: absolute;
+    left: -15px; /* Ajustez cette valeur pour positionner correctement le cercle */
+    top: 50%; /* Positionne le cercle verticalement au centre */
+    transform: translateY(-50%); /* Centre le cercle verticalement */
+}
+
+.contacts-category {
+    margin-bottom: 10px;
+}
+
+.contacts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: Verdana;
+    font-size: 10px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.contacts-list li {
+    display: flex;
+    align-items: center;
+    padding: 1px 0;
+    font-size: 10px;
+    color: #333333;
+}
+
+.status-icon {
+    width: 9px;
+    height: 9px;
+    margin-right: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 25%;
+    padding: 3px;
+
+}
+
+
+/* Effet visuel de la languette au survol */
+#contacts-tab:hover {
+    background-color: #e0e0e0; /* Change la couleur de fond au survol */
+}
+
+/* Styles pour les éléments déplacés lors de l'ouverture/fermeture de la barre */
+.shift-right {
+    transition: transform 0.3s ease; /* Animation pour un décalage fluide */
+    transform: translateX(10px); /* Décalage initial de 10px */
+}
+
+/* Déplacement de l'onglet quand la barre est ouverte */
+.shift-tab {
+    transform: translateX(132px); /* Décalage de l'onglet de 150px vers la droite */
+}
+
+
+/* Styles pour les écrans mobiles */
+@media only screen and (max-width: 760px) {
+    /* Masquer le mandala-container sur mobile */
+    #mandala-container {
+        display: none;
+    }
+
+    /* Réinitialiser les marges et paddings */
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Empêche le scroll horizontal */
+    }
+
+    /* Barre de contacts sur le côté gauche */
+    #contacts-bar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 12px; /* Ajustement de la largeur */
+        background-color: #ffffff;
+        border-right: 1px solid #dddddd;
+        z-index: 1000;
+    }
+
+    /* Profile-section ajusté pour prendre toute la largeur */
+    #profile-section {
+        position: fixed;
+        top: 0;
+        left: 12px; /* Ajusté pour correspondre à la barre de contacts */
+        width: 70%; /* Prend environ 70% de la largeur restante */
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        box-sizing: border-box;
+        z-index: 1000;
+        background-color: #ffffff;
+    }
+
+    /* Frusion-container placé à droite */
+    #frusion-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 18%; /* Prend le reste de l'espace */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        box-sizing: border-box;
+        z-index: 1000;
+        background-color: #ffffff;
+    }
+
+    /* Conteneur principal évitant le chevauchement */
+    #main-container {
+        margin-top: 75px; /* Espace pour profile-section */
+        padding: 5px 5px 0 12px; /* Ajustement pour éviter chevauchements */
+        width: calc(100% - 12px); /* Largeur totale moins contacts-bar */
+        overflow-y: auto; /* Scroll vertical si nécessaire */
+    }
+
+    /* Bureau avec grille de trois colonnes */
+    #desktop-area {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 5px;
+        justify-items: center;
+    }
+
+    .desktop-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90px; /* Augmentation de la taille des icônes */
+        height: 90px;
+    }
+
+    .desktop-icon img {
+        width: 70px; /* Taille ajustée */
+        height: 70px;
+    }
+
+    .desktop-icon span {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    /* Correction du chat */
+    #chat-window {
+        max-width: 90%; /* Limite la taille du chat */
+        margin: auto; /* Centré dans l'écran */
+    }
+}
+
+/* Style de la fenêtre Jeux */
+#jeux-window {
+    position: absolute;
+    width: 500px;
+    height: 323px;
+
+    background-color: #ffffff;
+    border: 1.5px solid #545454;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#jeux-window .window-header {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 2px 2px 0 2px;
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-family: Verdana;
+    font-size: 10px;
+}
+
+#jeux-window .window-controls {
+    display: flex;
+    gap: 0px;
+}
+
+#jeux-window .window-content {
+    padding: 5px;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
+#jeux-window .minimize-btn, #jeux-window .close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+
+#jeux-window .minimize-btn:hover, #jeux-window .close-btn:hover {
+    color: #f00;
+}
+
+#jeux-title {
+    position: absolute;
+    color: #444444;
+    font-family: Verdana;
+    font-size: 12px;
+    margin-left: 18px;
+
+}
+
+#jeux-details {
+    flex-grow: 1;
+    padding-left: 15px;
+    padding-top: 4px;
+    background-color: #F8F866;
+    border-bottom-right-radius: 10px;
+    border-radius: 3px;
+    margin-left: 0px;
+    border: 1.5px solid #d7d76f;
+    box-shadow: 0 0 0 2px #DDDDDD;
+    position: relative;
+    height: 240px;
+overflow: hidden
+}
+
+#jeux-details::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to bottom, #ffffa9, #f6f67c);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    z-index: 1;
+}
+
+#jeux-menu {
+flex-grow: 1;
+    background-color: white;
+    border-bottom-right-radius: 10px;
+    border-radius: 3px;
+    margin-left: 0px;
+    border: 1px solid #c5c5c5;
+    position: relative;
+    padding: 3px;
+    font-size: 10px;
+    font-family: Verdana;
+    margin-bottom: 5px;
+}
+
+.hidden {
+    display: none !important;
+}
